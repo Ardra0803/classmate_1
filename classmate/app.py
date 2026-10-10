@@ -50,8 +50,8 @@ REQUIRE_APPROVAL = os.environ.get("REQUIRE_APPROVAL", "false").lower() == "true"
 #  ADMIN SETTINGS  -  fill these in directly (admin page: /admin)
 #  The admin login stays disabled until you replace "Fill with your data".
 # =====================================================================
-ADMIN_EMAIL = "admin@gmail.com"
-ADMIN_PASSWORD = "admin@123"
+ADMIN_EMAIL = "Fill with your data"
+ADMIN_PASSWORD = "Fill with your data"
 # Any long random text. If left as is, a random one is made on each start (admin logs out on restart).
 ADMIN_SECRET_KEY = "Fill with your data"
 
@@ -80,21 +80,31 @@ if not is_set(ADMIN_SECRET_KEY):
 
 # ---------- database ----------
 def connect(with_db=True):
+    # Hosted MySQL (Aiven, TiDB, Railway ...) usually needs an encrypted connection: set DB_SSL=true in the environment.
+    # Optional: DB_SSL_CA=/path/to/ca.pem to also verify the server certificate.
+    extra = {}
+    if os.environ.get("DB_SSL", "false").lower() == "true":
+        ca = os.environ.get("DB_SSL_CA")
+        extra["ssl"] = {"ca": ca} if ca else {"check_hostname": False}
     return pymysql.connect(
         **DB,
+        **extra,
         database=DB_NAME if with_db else None,
         charset="utf8mb4",
         cursorclass=pymysql.cursors.DictCursor,
         autocommit=True,
-        connect_timeout=5,
+        connect_timeout=10,
     )
 
 
 def init_db():
     """Create the database and tables if they do not exist."""
     safe = re.sub(r"[^A-Za-z0-9_]", "", DB_NAME)
-    with connect(with_db=False) as c, c.cursor() as cur:
-        cur.execute(f"CREATE DATABASE IF NOT EXISTS `{safe}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
+    try:
+        with connect(with_db=False) as c, c.cursor() as cur:
+            cur.execute(f"CREATE DATABASE IF NOT EXISTS `{safe}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
+    except pymysql.MySQLError:
+        pass  # hosted databases already exist and may not allow CREATE DATABASE; the tables below are created next
     with connect() as c, c.cursor() as cur:
         cur.execute("""CREATE TABLE IF NOT EXISTS feedback (
           id INT AUTO_INCREMENT PRIMARY KEY,
