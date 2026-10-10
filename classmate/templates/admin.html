@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin | classmate</title>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+<header class="nav">
+  <span class="logo">classmate <small>admin</small></span>
+  <nav>
+    <button class="btn small ghost" id="alertBtn" type="button">Turn on alerts</button>
+    <a href="/" target="_blank" rel="noopener">View website</a>
+    <form method="post" action="/admin/logout"><button class="btn small" type="submit">Log out</button></form>
+  </nav>
+</header>
+
+<main class="wrap admin">
+  <div class="stats" id="stats"></div>
+  <div class="bar">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabEnq" aria-selected="true" data-tab="enq">Enquiries <span class="badge" id="bEnq" hidden></span></button>
+      <button role="tab" id="tabFb" aria-selected="false" data-tab="fb">Feedback <span class="badge" id="bFb" hidden></span></button>
+    </div>
+    <div class="bar-right">
+      <label class="inline"><input type="checkbox" id="onlyNew"> Show new only</label>
+      <button class="btn small ghost" id="markAll" type="button">Mark all as read</button>
+    </div>
+  </div>
+  <div id="list" aria-live="polite"></div>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

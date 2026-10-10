@@ -1,0 +1,92 @@
+{
+  "brand": "classmate",
+  "tagline": "One tutor. One student. A plan built around you.",
+  "intro": "Classmate offers fully one-on-one tutoring. Every student gets their own plan, assignments and exams, with Computer Science for Class 11 and 12 as our speciality.",
+  "tutors": [
+    {
+      "name": "Mohammed Rabiyath",
+      "role": "Tutor / Software Developer",
+      "qualification": "Bachelor of Technology in Computer Science and Engineering",
+      "experience": "2 years of teaching experience in Computer Science and Mathematics",
+      "bio": "A passionate tutor and curious software developer, Rabiyath has been teaching Computer Science and Mathematics for the past 2 years. He believes in a personalized approach to learning, ensuring that each student grasps concepts thoroughly and applies them effectively.",
+      "subjects": "Computer Science, Mathematics, Python Programming, Data Structures, SQL, Databases and Networks"
+    },
+    {
+      "name": "Ardra",
+      "role": "Tutor / Software Developer",
+      "qualification": "Bachelor of Technology in Computer Science and Engineering",
+      "experience": "2 years of teaching experience in Computer Science",
+      "bio": "Ardra is a dedicated tutor with a strong background in Computer Science. She has been teaching for the past 2 years, focusing on making complex concepts accessible and engaging for students.",
+      "subjects": "Computer Science, Python Programming, Data Structures, SQL, Databases, Networks and Mathematics"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "cs",
+      "label": "Class 11 and 12: Computer Science",
+      "headline": "Computer Science, taught to your syllabus",
+      "points": [
+        "Python programming and problem solving",
+        "Data structures, SQL and database concepts",
+        "Computer Networks and operating systems",
+        "Practical file, project and viva preparation",
+        "Weekly assignments and chapter-wise mock exams",
+        "Board exam strategy and previous-year paper practice"
+      ]
+    },
+    {
+      "id": "school",
+      "label": "Up to Class 10: All subjects",
+      "headline": "Every subject, at your pace",
+      "points": [
+        "Weekly assignments and chapter-wise mock exams",
+        "Concepts rebuilt from the basics where needed",
+        "Homework help and revision plans",
+        "Regular tests with feedback on each mistake",
+        "Confidence-building for school and board exams"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "title": "Free intro call",
+      "text": "Tell us your class, board and goals."
+    },
+    {
+      "title": "Level check",
+      "text": "A short assessment shows where you stand."
+    },
+    {
+      "title": "Your own plan",
+      "text": "A schedule with topics, assignments and exam dates just for you."
+    },
+    {
+      "title": "Weekly sessions",
+      "text": "One-on-one classes, doubts solved live."
+    },
+    {
+      "title": "Review and repeat",
+      "text": "Progress reports so you and your parents can see the change."
+    }
+  ],
+  
+  "ticker": [
+    "Python",
+    "SQL and databases",
+    "Data structures",
+    "Computer Networks",
+    "Board exam prep",
+    "Mock tests",
+    "Maths",
+    "Weekly assignments",
+    "Doubt clearing",
+    "One-on-one"
+  ],
+  "rotator": [
+    "Python programming",
+    "SQL and databases",
+    "Computer Science",
+    "Maths up to Class 10",
+    "Board exam strategy"
+  ]
+}
