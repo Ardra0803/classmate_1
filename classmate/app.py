@@ -49,19 +49,21 @@ REQUIRE_APPROVAL = os.environ.get("REQUIRE_APPROVAL", "false").lower() == "true"
 # =====================================================================
 #  ADMIN SETTINGS  -  fill these in directly (admin page: /admin)
 #  The admin login stays disabled until you replace "Fill with your data".
+#  On a live server, set these as environment variables instead (ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN_SECRET_KEY ...)
+#  so your password never goes into GitHub.
 # =====================================================================
-ADMIN_EMAIL = "Fill with your data"
-ADMIN_PASSWORD = "Fill with your data"
+ADMIN_EMAIL = "admin@gmail.com"
+ADMIN_PASSWORD = "admin@123"
 # Any long random text. If left as is, a random one is made on each start (admin logs out on restart).
-ADMIN_SECRET_KEY = "Fill with your data"
+ADMIN_SECRET_KEY = os.environ.get("ADMIN_SECRET_KEY", "Fill with your data")
 
 # Optional: get an email whenever an enquiry or feedback arrives. Leave as is to skip emails.
 # Gmail example: host smtp.gmail.com, port 587, user = your gmail, password = a Gmail "App password".
-SMTP_HOST = "Fill with your data"
+SMTP_HOST = os.environ.get("SMTP_HOST", "Fill with your data")
 SMTP_PORT = 587
-SMTP_USER = "Fill with your data"
-SMTP_PASSWORD = "Fill with your data"
-NOTIFY_EMAIL = "Fill with your data"  # where alerts are sent
+SMTP_USER = os.environ.get("SMTP_USER", "Fill with your data")
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "Fill with your data")
+NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "Fill with your data")  # where alerts are sent
 # =====================================================================
 
 
